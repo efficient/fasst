@@ -1,0 +1,12 @@
+{
+  "alloc": {
+  },
+
+  "table": {
+    "name": "SAVING",
+    "item_count": 20000000,
+    "concurrent_read": true,
+    "concurrent_write": true,
+    "numa_node": 0
+  }
+}

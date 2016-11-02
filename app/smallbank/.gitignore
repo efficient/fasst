@@ -1,0 +1,8 @@
+# Prevent symlinks from showing up as untracked files
+# These files must be added to the repo using -f
+autorun.sh
+kill-all.sh
+proc-out.sh
+run-all.sh
+run-remote.sh
+check-nics.sh

@@ -1,0 +1,12 @@
+{
+  "alloc": {
+  },
+
+  "table": {
+    "name": "mica_table",
+    "item_count": 30000000,
+    "concurrent_read": true,
+    "concurrent_write": true,
+    "numa_node": 0
+  }
+}

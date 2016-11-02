@@ -1,0 +1,12 @@
+{
+  "alloc": {
+  },
+
+  "table": {
+    "name": "SUBSCRIBER",
+    "item_count": 1250000,
+    "concurrent_read": true,
+    "concurrent_write": true,
+    "numa_node": 0
+  }
+}

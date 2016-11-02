@@ -1,0 +1,11 @@
+{
+  "dct_test": {
+	"num_ports": 2,
+	"num_qps": 1,
+	"window_size": 32,
+	"numa_node": 0,
+	"num_machines": 11,
+	"workers_per_machine": 14,
+	"size_req": 32
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "alloc": {
+  },
+
+  "hots": {
+	"num_coro": 15,
+	"base_port_index": 0,
+	"num_ports": 2,
+	"num_qps": 1,
+	"postlist": 16,
+	"numa_node": 0,
+	"num_machines": 6,
+	"workers_per_machine": 14,
+	"num_backups": 2,
+	"use_lock_server": false
+  }
+}

@@ -1,0 +1,7 @@
+# Files that are normally in apt-scripts/ directory
+./apt-params.sh
+./kill-all.sh
+./proc-out.sh
+./run-all.sh
+./run-remote.sh
+./check-nics.sh

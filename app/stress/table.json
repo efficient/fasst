@@ -1,0 +1,12 @@
+{
+  "alloc": {
+  },
+
+  "table": {
+    "name": "STRESS-TABLE",
+    "item_count": 1000,
+    "concurrent_read": true,
+    "concurrent_write": true,
+    "numa_node": 0
+  }
+}

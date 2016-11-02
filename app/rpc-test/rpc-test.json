@@ -1,0 +1,15 @@
+{
+  "rpc_test": {
+	"num_coro": 21,
+	"base_port_index": 0,
+	"num_ports": 2,
+	"num_qps": 1,
+	"postlist": 16,
+	"numa_node": 0,
+	"num_machines": 11,
+	"workers_per_machine": 14,
+	"req_batch_size": 1,
+	"size_req": 32,
+	"size_resp": 32
+  }
+}

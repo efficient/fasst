@@ -1,0 +1,20 @@
+{
+  "tx_test": {
+	"num_coro": 20,
+	"base_port_index": 0,
+	"num_ports": 1,
+	"num_qps": 1,
+	"postlist": 16,
+	"numa_node": 0,
+	"num_machines": 24,
+	"workers_per_machine": 14,
+	"num_backups": 2,
+	"use_lock_server": false,
+	"num_locks_kilo": 512,
+	"num_keys_kilo": 1024,
+	"val_size": 40,
+	"zipf_theta": 0.9,
+	"read_set_size": 4,
+	"write_percentage": 0
+  }
+}
