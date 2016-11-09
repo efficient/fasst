@@ -1,13 +1,14 @@
-## Postlist and slack
-We can get up to `O(WINDOW_SIZE + (NUM_SERVERS * PER_SERVER_CREDITS)`
-completions in every `poll_cq()`, consisting of both new requests and responses.
-We break down the response send()s into postlists of size `@postlist`. New
-requests are sent out in non-postlist send()s if `USE_REQ_POSTLIST == 0`.
+## Packet loss test
+Important parameters:
+ * `NUM_WORKERS`: Number of threads in the cluster
+ * `num_server_threads`: Number of threads in a server
+ * `PER_WORKER_CREDITS`: Number of outstanding requests a thread can have to
+   any other thread. This must be more than one to detect packet loss or
+   reordering.
+ * `CHECK_PACKET_LOSS`: This enables detection of packet loss and reordering.
+   By disabling this option, `swarm` can be used as a request-reply over UD verbs
+   performance benchmark.
 
-## Port mapping
- * A worker receives new requests on its primary port `wrkr_gid % num_ports`
-only; responses are also sent out only on this port.
- * Responses are received on both ports.
- * All RECVs are posted on 0th QP on each port.
-
-
+## Running the experiment
+The experiment needs `K = NUM_WORKERS / num_server_threads` machines. At each
+machine `i` in `{0, ..., K - 1}`, run `./run-servers.sh $i`.

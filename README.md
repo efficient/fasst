@@ -48,6 +48,7 @@ directory.
 | `app` | Benchmarks (TATP, SmallBank, RPC microbenchmark, packet loss test). |
 | `drivers` | Modified `libmlx4` and `libmlx5` drivers with the cheap RECV posting optimization.|
 | `loss\_study` | The code and output logs used in our InfiniBand packet loss study. |
+| `other` | Contains a DCT benchmark. |
 
 ## Instructions to run on Emulab's Apt cluster:
  * Set `HRD_REGISTRY_IP` to `node-1`'s IP address

@@ -167,7 +167,7 @@ public:
 	}
 
 	/*
- 	 * Add a read-only key. When this key is read, the fetched object will be
+ 	 * Add a read-write key. When this key is read, the fetched object will be
 	 * copied to obj.
 	 * Returns the primary machine number for the key. This information is
 	 * useful to avoid RPC coalescing in benchmarks.
