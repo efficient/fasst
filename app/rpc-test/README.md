@@ -2,7 +2,7 @@
 Measures the performance of FaSST RPCs
 
 ## Important parameters
-The main experiment parameters are defined in `tatp.json`.
+The main experiment parameters are defined in `rpc-test.json`.
   * `num_coro`: Number of coroutines per worker thread
   * `base_port_index`: The 0-based index of the first RDMA port to use
   * `num_ports`: Number of RDMA ports to use starting from `base_port_index`
