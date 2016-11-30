@@ -50,6 +50,9 @@ directory.
 | `loss\_study` | The code and output logs used in our InfiniBand packet loss study. |
 | `other` | Contains a DCT benchmark. |
 
+## Building the benchmarks
+Each benchmark in the `app` directory contains a Makefile to build the benchmark.
+
 ## Instructions to run on Emulab's Apt cluster:
  * Set `HRD_REGISTRY_IP` to `node-1`'s IP address
  * Reduce `HRD_MAX_INLINE` to 60 bytes
