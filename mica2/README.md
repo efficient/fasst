@@ -7,6 +7,7 @@ Authors
 -------
 
 Hyeontaek Lim (hl@cs.cmu.edu)
+Anuj Kalia (akalia@cs.cmu.edu)
 
 License
 -------
