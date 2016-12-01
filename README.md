@@ -16,7 +16,7 @@ is called HoTS in this codebase. This is the source code for our
  * Boost 1.6 (earlier and newer versions not tested)
    * Depends on python-dev and libbz2-dev
  * libpapi-dev
- * gcc-5.3
+ * gcc-5.3 (C++11 support required; gcc-4.8 works but can have ~10% lower performance)
 
 ## Required settings
 All benchmarks run in a symmetric setting with multiple machines (i.e., there
