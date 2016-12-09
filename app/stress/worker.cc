@@ -149,7 +149,7 @@ void txn_get_N(coro_yield_t &yield, int coro_id, Tx *tx)
 	size_t num_exists = 0;
 	for(size_t i = 0; i < N; i++) {
 		/* Save the execute-time object metadata to report in case of failure */
-		execute_objs[i].ts = stress_objs[i].ts;
+		execute_objs[i].hdr = stress_objs[i].hdr;
 		execute_objs[i].val_size = stress_objs[i].val_size;
 
 		if(stress_objs[i].val_size > 0) {
