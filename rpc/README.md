@@ -41,12 +41,12 @@ belong to the RPC subsystem.
   * Requests need no special handling because they are not reused by the RPC
     layer until they are not needed anymore. As request mbufs belong to
     registered memory, they can be transferred inline or non-inline.
-  * Responses need special handling because there can be reused. Consider the
+  * Responses need special handling because they can be reused. Consider the
     case where a response batch uses response buffers 1 through 10 and the next
     response batch also uses buffers 1 through 10. Assume `RPC_UNSIG_BATCH = 64`.
-    In this case, if any of the responses in the 1st batch exceeded the inline
+    In this case, if any response in the 1st batch exceededs the inline
     threshold, the 2nd batch may overwrite the buffer before the NIC DMAs' it.
-    * A possible solution is to cycle among response buffers, but that increase
+    * A possible solution is to cycle among response buffers, but that increases
       cache pressure if the cycle length is too large (e.g., `HRD_RQ_DEPTH`).
       Keeping the cycle length small (e.g., `2 * RPC_UNSIG_BATCH`) is a little
       complicated.
