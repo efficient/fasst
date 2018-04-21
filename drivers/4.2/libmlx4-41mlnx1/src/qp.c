@@ -46,6 +46,8 @@
 #include "doorbell.h"
 #include "wqe.h"
 
+#include "../../../modded_drivers.h"
+
 #ifndef htobe64
 #include <endian.h>
 # if __BYTE_ORDER == __LITTLE_ENDIAN
@@ -1465,6 +1467,35 @@ out:
 int mlx4_post_recv(struct ibv_qp *ibqp, struct ibv_recv_wr *wr,
 		   struct ibv_recv_wr **bad_wr)
 {
+	if(likely(wr == NULL && (*bad_wr) != NULL &&
+		(*bad_wr)->wr_id == HOTS_MAGIC_WRID_FOR_FAST_RECV)) {
+		/* Handle fast RECV */
+		struct mlx4_qp *qp = to_mqp(ibqp);
+
+		int nreq = (*bad_wr)->num_sge;
+		qp->rq.head += nreq;
+
+		wmb();
+		*qp->db = htonl(qp->rq.head & 0xffff);
+
+		return 0;
+	}
+
+	/*
+	 * Respond to a "Is driver modded?" probe. A probe is ibv_post_recv() with:
+	 * a. A valid queue pair
+	 * b. *wr = NULL
+	 * c. The @wr_id field of @bad_wr set to HOTS_MODDED_PROBE_WRID
+	 *
+	 * On a non-modded driver, this call is safe and returns 0. On a modded
+	 * driver, this call returns @HOTS_MODDED_PROBE_RET.
+	 */
+	if(unlikely(ibqp != NULL && wr == NULL && (*bad_wr) != NULL &&
+		(*bad_wr)->wr_id == HOTS_MODDED_PROBE_WRID)) {
+		/* Tell the HoTS caller that this is a modded driver */
+		return HOTS_MODDED_PROBE_RET;
+	}
+
 	struct mlx4_qp *qp = to_mqp(ibqp);
 	struct mlx4_wqe_data_seg *scat;
 	int ret = 0;
