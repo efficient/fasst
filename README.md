@@ -18,6 +18,10 @@ is called HoTS in this codebase. This is the source code for our
  * libpapi-dev
  * gcc-5.3 (C++11 support required; gcc-4.8 works but can have ~10% lower performance)
 
+## Building the benchmarks
+There is no top-level Makefile. Each benchmark in the `app` directory is built
+separately with the Makefile in the benchmark's directory.
+
 ## Required settings
 All benchmarks run in a symmetric setting with multiple machines (i.e., there
 are no designated server or client machines. Every benchmark is contained in one
@@ -49,9 +53,6 @@ directory.
 | `drivers` | Modified `libmlx4` and `libmlx5` drivers with the cheap RECV posting optimization.|
 | `loss\_study` | The code and output logs used in our InfiniBand packet loss study. |
 | `other` | Contains a DCT benchmark. |
-
-## Building the benchmarks
-Each benchmark in the `app` directory contains a Makefile to build the benchmark.
 
 ## Instructions to run on Emulab's Apt cluster:
  * Set `HRD_REGISTRY_IP` to `node-1`'s IP address
